@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to 'Add a New Product', new_product_path, class: 'btn btn-success pull-right' %>
+  <h1>Your Product Inventory</h1>
+</div>
+
+
+<% if @products.any? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sku</th>
+      <th>On hand</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr id="%<= dom_id(product) %>">
+        <td><%= product.sku %></td>
+        <td><%= product.on_hand %></td>
+        <td><%= link_to 'Set Quantity', '#', class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Delete Product', '#', class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
