@@ -16,7 +16,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "products", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "price"
-    t.string  "photo_url",    default: 0
+    t.string  "photo_url"
+    t.integer  "on_hand",    default: 0
+    t.string "title"
     t.text "description"
     t.string "sku"
     t.datetime "created_at"

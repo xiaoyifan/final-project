@@ -8,7 +8,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Picture</th>
+      <th>Description</th>
       <th>Sku</th>
+      <th>Price</th>
       <th>On hand</th>
       <th></th>
       <th></th>
@@ -18,10 +21,14 @@
   <tbody>
     <% @products.each do |product| %>
       <tr id="%<= dom_id(product) %>">
-        <td><%= product.sku %></td>
-        <td><%= product.on_hand %></td>
-        <td><%= link_to 'Set Quantity', '#', class: 'btn btn-primary' %></td>
-        <td><%= link_to 'Delete Product', '#', class: 'btn btn-danger' %></td>
+
+        <td><div class="col-md-4"><%= image_tag product.photo_url, class: 'img-responsive' %></div></td>
+        <td><div class="col-md-2"><%= product.title %></div></td>
+        <td><div class="col-md-2"><%= product.sku %></div></td>
+        <td><div class="col-md-1"><%= number_to_currency(product.price / 100.0) %></div></td>
+        <td><div class="col-md-1"><%= product.on_hand %></div></td>
+        <td><div class="col-md-1"><%= link_to 'Set Quantity', '#', class: 'btn btn-primary' %></div></td>
+        <td><div class="col-md-1"><%= link_to 'Delete Product', '#', class: 'btn btn-danger' %></div></td>
       </tr>
     <% end %>
   </tbody>

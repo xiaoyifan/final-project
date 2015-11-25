@@ -11,14 +11,33 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="form-group">
     <%= f.label :sku %><br>
     <%= f.text_field :sku %>
   </div>
-  <div>
+  <div class="form-group">
+    <%= f.label :photo_url %><br>
+    <%= f.text_field :photo_url %>
+  </div>
+  <div class="form-group">
     <%= f.label :on_hand %><br>
     <%= f.text_field :on_hand %>
   </div>
+  <%= f.hidden_field :user_id, :value => current_user.uid %>
+
+  <br>
   <div>
     <%= f.submit %>
   </div>

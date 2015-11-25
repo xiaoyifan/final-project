@@ -25,6 +25,10 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    puts product_params[:sku]
+    puts current_user.uid
+    product_params['user_id'] = current_user.uid
+
     @product = Product.new(product_params)
 
     respond_to do |format|
@@ -70,6 +74,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:sku, :on_hand)
+      params.require(:product).permit(:sku, :on_hand, :price, :photo_url, :title, :description, :user_id)
     end
 end

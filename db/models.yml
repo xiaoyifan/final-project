@@ -2,6 +2,8 @@ Product
   user_id: integer
   price: integer
   photo_url: string
+  on_hand: integer
+  title: string
   description: text
   sku: string
   created_at: datetime
