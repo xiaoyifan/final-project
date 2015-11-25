@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "products", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "sku"
-    t.integer  "on_hand",    default: 0
+    t.integer  "price"
+    t.string  "photo_url",    default: 0
+    t.text "description"
+    t.string "sku"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,8 +26,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "products", ["user_id"], name: "index_products_on_user_id"
 
   create_table "users", force: :cascade do |t|
+    t.string "provider"
     t.string "uid"
-    t.string "name"
+    t.string "nickname"
   end
 
 end

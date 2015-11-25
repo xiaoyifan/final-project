@@ -1,13 +1,16 @@
 Product
-  user_id
-  sku
-  on_hand: integer(0)
-  created_at
-  updated_at
+  user_id: integer
+  price: integer
+  photo_url: string
+  description: text
+  sku: string
+  created_at: datetime
+  updated_at: datetime
 
 User
-  uid
-  name
+  provider: string
+  uid: string
+  nickname: string
 
 
 # Example table for a typical Book model.

@@ -1,11 +1,20 @@
 class SessionsController < ApplicationController
 
   def create
-    data = request.env['omniauth.auth']
-    user = User.find_by_uid(data['uid'])
-    user ||= User.create uid: data['uid']
+    incoming_provider = request.env['omniauth.auth']['provider']
+    incoming_uid = request.env['omniauth.auth']['uid']
+    incoming_info = request.env['omniauth.auth']['info']
+    nickname = incoming_info['nickname']
+
+    user = User.find_by(provider: incoming_provider, uid: incoming_uid)
+    if user
+      redirect_to products_url, notice: "Welcome back!"
+    else
+      user = User.create provider: incoming_provider, uid: incoming_uid, nickname: nickname
+      redirect_to products_url, notice: "Thanks for registration!"
+    end
+
     session[:user_id] = user.id
-    redirect_to products_url, notice: "Welcome back!"
   end
 
   def destroy
