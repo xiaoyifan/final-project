@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   get '/pages/:action', controller: 'pages'
 
   get '/logout' => 'sessions#destroy'
-  
+
+  get '/inventory' => 'pages#inventory'
+
 end
