@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/inventory' => 'pages#inventory'
+  get '/on_hand' => 'pages#on_hand_left'
 
 end
