@@ -20,7 +20,7 @@
 
   <tbody>
     <% @products.each do |product| %>
-      <tr id="%<= dom_id(product) %>">
+        <tr id="<%= dom_id(product) %>">
 
         <td><div class="col-md-4"><%= image_tag product.photo_url, class: 'img-responsive' %></div></td>
         <td><div class="col-md-2"><%= product.title %></div></td>
@@ -28,7 +28,7 @@
         <td><div class="col-md-1"><%= number_to_currency(product.price / 100.0) %></div></td>
         <td><div class="col-md-1"><%= product.on_hand %></div></td>
         <td><div class="col-md-1"><%= link_to 'Set Quantity', edit_product_path(id: product.id), class: 'btn btn-primary' %></div></td>
-        <td><div class="col-md-1"><%= link_to 'Delete Product', '#', class: 'btn btn-danger' %></div></td>
+        <td><div class="col-md-1"><%= link_to 'Delete Product', product, remote: true, class: 'btn btn-danger',  method: :delete, data: { confirm: "Are you sure?" }  %></div></td>
       </tr>
     <% end %>
   </tbody>
