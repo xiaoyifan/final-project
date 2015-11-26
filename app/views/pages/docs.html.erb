@@ -21,7 +21,8 @@
     <h3>Endpoint #2: Query for quantity remaining.</h3>
     <ol>
       <li>What HTTP request would be best?  Think about the URL, HTTP method, and data format.</li>
-      <li>What response will you send back?  What data will you include?  Be sure to document the data structure that clients can expect.</li>
+      <li>In this request, I used <code>http://localhost:4000/on_hand?sku=#{product.sku}</code> to query the number of items left.</li>
+      <li>The reponse is an key-value pair as {count: number}, we can fetch the number value by using "count"</li>
       <li>What error cases might you need to handle?  Think about possible HTTP status codes and how to document them here.</li>
     </ol>
 

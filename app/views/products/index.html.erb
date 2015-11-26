@@ -27,7 +27,7 @@
         <td><div class="col-md-2"><%= product.sku %></div></td>
         <td><div class="col-md-1"><%= number_to_currency(product.price / 100.0) %></div></td>
         <td><div class="col-md-1"><%= product.on_hand %></div></td>
-        <td><div class="col-md-1"><%= link_to 'Set Quantity', '#', class: 'btn btn-primary' %></div></td>
+        <td><div class="col-md-1"><%= link_to 'Set Quantity', edit_product_path(id: product.id), class: 'btn btn-primary' %></div></td>
         <td><div class="col-md-1"><%= link_to 'Delete Product', '#', class: 'btn btn-danger' %></div></td>
       </tr>
     <% end %>
