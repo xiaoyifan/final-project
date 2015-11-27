@@ -1,5 +1,7 @@
 == README
 
+Client side: https://github.com/xiaoyifan/musicStore-client-final
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
